@@ -37,7 +37,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-example_suite_1">
-              <span class="suite-name border-passed">example suite 1</span>
+              <span class="suite-name border-skipped">example suite 1</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -90,7 +90,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">3 methods,   3 passed</span>
+                    <span class="method-stats">3 methods,  1 skipped,  2 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title skipped">Skipped methods</span>
+                    <span class="show-or-hide-methods skipped">
+                      <a href="#" panel-name="suite-example_suite_1" class="hide-methods skipped suite-example_suite_1"> (hide)</a> <!-- hide-methods skipped suite-example_suite_1 -->
+                      <a href="#" panel-name="suite-example_suite_1" class="show-methods skipped suite-example_suite_1"> (show)</a> <!-- show-methods skipped suite-example_suite_1 -->
+                    </span>
+                    <div class="method-list-content skipped suite-example_suite_1">
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-example_suite_1" title="Demo.Demo1" hash-for-method="testCaseFour">testCaseFour</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content skipped suite-example_suite_1 -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -101,17 +115,12 @@
                     <div class="method-list-content passed suite-example_suite_1">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-example_suite_1" title="Demo.Demo1" hash-for-method="testCaseFour">testCaseFour</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
                         <a href="#" class="method navigator-link" panel-name="suite-example_suite_1" title="Demo.Demo1" hash-for-method="testCaseOne">testCaseOne</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-example_suite_1" title="Demo.Demo1" hash-for-method="testCaseThree">testCaseThree</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-example_suite_1" title="Demo.Demo2" hash-for-method="testCaseTwo">testCaseTwo</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-example_suite_1 -->
@@ -126,9 +135,9 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-example_suite_1" class="panel example_suite_1">
-          <div class="suite-example_suite_1-class-passed">
+          <div class="suite-example_suite_1-class-skipped">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
+              <img src="skipped.png"/>
               <span class="class-name">Demo.Demo1</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
@@ -137,8 +146,20 @@
                   <a name="testCaseFour">
                   </a> <!-- testCaseFour -->
                   <span class="method-name">testCaseFour</span>
+                  <div class="stack-trace">org.testng.TestNGException: 
+Method testCaseFour requires 2 parameters but 0 were supplied in the @Test annotation.
+... Removed 23 stack frames
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-example_suite_1-class-skipped -->
+          <div class="suite-example_suite_1-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">Demo.Demo1</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
                   <a name="testCaseOne">
@@ -146,11 +167,19 @@
                   <span class="method-name">testCaseOne</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-example_suite_1-class-passed -->
+          <div class="suite-example_suite_1-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">Demo.Demo2</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="testCaseThree">
-                  </a> <!-- testCaseThree -->
-                  <span class="method-name">testCaseThree</span>
+                  <a name="testCaseTwo">
+                  </a> <!-- testCaseTwo -->
+                  <span class="method-name">testCaseTwo</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -166,8 +195,14 @@
 &lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite name=&quot;example suite 1&quot;&gt;
   &lt;test name=&quot;Regression suite&quot;&gt;
+    &lt;groups&gt;
+      &lt;run&gt;
+        &lt;include name=&quot;Regression&quot;/&gt;
+      &lt;/run&gt;
+    &lt;/groups&gt;
     &lt;classes&gt;
       &lt;class name=&quot;Demo.Demo1&quot;/&gt;
+      &lt;class name=&quot;Demo.Demo2&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Regression suite --&gt;
 &lt;/suite&gt; &lt;!-- example suite 1 --&gt;
@@ -181,7 +216,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Regression suite (1 class)</span>
+                <span class="test-name">Regression suite (2 classes)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -202,12 +237,16 @@
                 <span class="method-in-group-name">testCaseOne</span>
                 <br/>
               </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">testCaseTwo</span>
+                <br/>
+              </div> <!-- method-in-group -->
             </div> <!-- test-group -->
             <div class="test-group">
-              <span class="test-group-name">Smoke Test</span>
+              <span class="test-group-name">functest</span>
               <br/>
               <div class="method-in-group">
-                <span class="method-in-group-name">testCaseThree</span>
+                <span class="method-in-group-name">testCaseTwo</span>
                 <br/>
               </div> <!-- method-in-group -->
             </div> <!-- test-group -->
@@ -229,13 +268,13 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(3);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'testCaseThree')
+data.setCell(0, 1, 'testCaseOne')
 data.setCell(0, 2, 'Demo.Demo1')
 data.setCell(0, 3, 16);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'testCaseOne')
-data.setCell(1, 2, 'Demo.Demo1')
-data.setCell(1, 3, 1);
+data.setCell(1, 1, 'testCaseTwo')
+data.setCell(1, 2, 'Demo.Demo2')
+data.setCell(1, 3, 0);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'testCaseFour')
 data.setCell(2, 2, 'Demo.Demo1')
@@ -244,7 +283,7 @@ window.suiteTableData['example_suite_1']= { tableData: data, tableDiv: 'times-di
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 17 ms</span>
+              <span class="suite-total-time">Total running time: 16 ms</span>
               <div id="times-div-example_suite_1">
               </div> <!-- times-div-example_suite_1 -->
             </div> <!-- times-div -->
@@ -259,9 +298,27 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-example_suite_1" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">4 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">Demo.Demo1</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">testCaseThree</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">Demo.Demo2</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">testingExitMessage</span>
+                <br/>
+                <span class="ignored-method-name">testPrintMessage</span>
+                <br/>
+                <span class="ignored-method-name">testSalutationMessage</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-example_suite_1" class="panel">
@@ -272,16 +329,15 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">Demo.Demo1</div> <!-- chronological-class-name -->
               <div class="test-method">
-                <span class="method-name">testCaseThree</span>
+                <span class="method-name">testCaseOne</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">Demo.Demo2</div> <!-- chronological-class-name -->
               <div class="test-method">
-                <span class="method-name">testCaseOne</span>
-                <span class="method-start">18 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">testCaseFour</span>
-                <span class="method-start">21 ms</span>
+                <span class="method-name">testCaseTwo</span>
+                <span class="method-start">32 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

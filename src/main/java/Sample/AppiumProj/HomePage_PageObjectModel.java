@@ -1,5 +1,7 @@
 package Sample.AppiumProj;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.openqa.selenium.By;
 
 public class HomePage_PageObjectModel {
@@ -12,7 +14,6 @@ public class HomePage_PageObjectModel {
 	By SearchBox = By.xpath("//*[contains(@id,'search_widget_textbox')]");
 	By SignupBtnFirst = By.id(".//*[@id='btn_msignup']");
 	By UserName = By.xpath(".//*[contains(@id,'username')]");
-	
 	
 	public By getCloseLoginBtn() {
 		return CloseLoginBtn;

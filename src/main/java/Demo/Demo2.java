@@ -10,17 +10,17 @@ public class Demo2 {
 	   public void testPrintMessage() {
 	      System.out.println("Inside testPrintMessage()");
 	   }
-	@Test(groups="Regression")
+	@Test(groups={"functest","Regression"})
 	public void testCaseTwo(){
 	System.out.println("class 2-------group regression 1");
 	}
-	   @Test(groups = { "checkintest" })
+	   @Test(groups ={"checkintest"})
 	   
 	   public void testSalutationMessage() {
 	      System.out.println("Inside testSalutationMessage()");
 	   }
 
-	   @Test(groups = { "functest" })
+	   @Test(groups ={"functest"})
 	   
 	   public void testingExitMessage() {
 	      System.out.println("Inside testExitMessage()");

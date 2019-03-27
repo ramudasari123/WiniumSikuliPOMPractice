@@ -67,6 +67,14 @@ public class WindowsApp {
 		System.out.println("Contact size :> " + listContacts.size());
 		for (WebElement contact : listContacts) {
 			System.out.println("name :> " + contact.getAttribute("Name"));
+			if (contact.getAttribute("Name").contains("KARTHIK volansys")) {
+				contact.click();
+				WebElement ele = driver.findElement(By
+						.xpath("//*[@ClassName='TChatEntryControl']"));
+				Actions ac = new Actions(driver);
+				ac.click(ele).perform();
+				
+			}
 		}
 	}
 }
